@@ -10,8 +10,8 @@ router.get('/', (req, res, next) => {
 })
 
 export default () => {
-    users(router, '/api/users/')
-    students(router, '/api/students/')
-    articles(router, '/api/articles/')
+    users(router, '/api/users')
+    students(router, '/api/students')
+    articles(router, '/api/articles')
     return router
 }

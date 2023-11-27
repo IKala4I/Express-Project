@@ -1,5 +1,7 @@
+import {getStudentStatistics, getStudentWithWorstScore} from '../controllers/students.controller.js'
+import {responseMiddleware} from '../middlewares/response.middleware.js'
+
 export default (router, url) => {
-    router.get(`${url}`, (req, res, next) => {
-        res.send('respond with a resource from Students')
-    })
+    router.get(`${url}`, getStudentStatistics, responseMiddleware)
+    router.get(`${url}/worst/:type`, getStudentWithWorstScore, responseMiddleware)
 }

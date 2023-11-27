@@ -1,4 +1,4 @@
-export const users = [
+export let users = [
     {
         firstName: 'John',
         lastName: 'Doe',
@@ -80,3 +80,8 @@ export const users = [
         tags: ['Management', 'Leadership']
     },
 ]
+
+export const updateUsers = (email) => {
+    users = users.filter(user => user.email !== email)
+    return users
+}
