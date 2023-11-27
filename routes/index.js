@@ -1,7 +1,13 @@
-// const express = require('express');
-// const router = express.Router();
-//
-// /* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
-// });
+import express from 'express'
+import users from './users.js'
+
+const router = express.Router()
+
+router.get('/', (req, res, next) => {
+    res.send('response from index.js router')
+})
+
+export default () => {
+    users(router, '/api/users')
+    return router
+}

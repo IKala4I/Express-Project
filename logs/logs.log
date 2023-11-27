@@ -6,3 +6,8 @@ Mon, 27 Nov 2023 10:21:05 GMT "GET /" 500 1449 - 3.181 ms
 Mon, 27 Nov 2023 10:24:28 GMT "GET /" 404 139 - 4.467 ms
 Mon, 27 Nov 2023 10:24:40 GMT "GET /usersasdf" 404 148 - 0.459 ms
 Mon, 27 Nov 2023 10:24:45 GMT "POST /usersasdf" 404 149 - 2.382 ms
+Mon, 27 Nov 2023 11:26:17 GMT "POST /" 404 140 - 3.219 ms
+Mon, 27 Nov 2023 11:26:22 GMT "GET /" 200 29 - 4.085 ms
+Mon, 27 Nov 2023 11:26:30 GMT "GET /api/users" 200 34 - 0.450 ms
+Mon, 27 Nov 2023 11:26:35 GMT "GET /api/userssdf" 404 151 - 0.752 ms
+Mon, 27 Nov 2023 11:26:40 GMT "GET /api/users/sdf" 404 152 - 0.393 ms
