@@ -1,0 +1,8 @@
+Mon, 27 Nov 2023 10:02:55 GMT "GET /users" 200 24 - 3.272 ms
+Mon, 27 Nov 2023 10:03:24 GMT "GET /" 200 30 - 4.879 ms
+Mon, 27 Nov 2023 10:03:51 GMT "GET /" 200 30 - 0.309 ms
+Mon, 27 Nov 2023 10:14:01 GMT "GET /" 404 139 - 3.652 ms
+Mon, 27 Nov 2023 10:21:05 GMT "GET /" 500 1449 - 3.181 ms
+Mon, 27 Nov 2023 10:24:28 GMT "GET /" 404 139 - 4.467 ms
+Mon, 27 Nov 2023 10:24:40 GMT "GET /usersasdf" 404 148 - 0.459 ms
+Mon, 27 Nov 2023 10:24:45 GMT "POST /usersasdf" 404 149 - 2.382 ms
