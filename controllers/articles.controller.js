@@ -1,5 +1,16 @@
+import * as yup from 'yup'
 import {articles} from '../mock/articles.js'
 import {findArticleByName} from '../helpers/findArticleByName.js'
+
+const articleSchema = yup.object().strict(true).shape({
+    name: yup.string().typeError('Name must be a string').required('Name is required'),
+    description: yup.string().typeError('Description must be a string'),
+    type: yup.string().typeError('Type must be a string').required('Type is required'),
+    tags: yup
+        .array()
+        .typeError('Tags must be an array of strings')
+        .of(yup.string().typeError('Tags must be an array of strings'))
+})
 
 export const getAllArticles = (req, res, next) => {
     try {
@@ -7,24 +18,28 @@ export const getAllArticles = (req, res, next) => {
         res.status(200)
     } catch (error) {
         res.error = error
-        res.status
+        res.status(500)
     } finally {
         next()
     }
 }
 
-export const createNewArticle = (req, res, next) => {
+export const createNewArticle = async (req, res, next) => {
     try {
-        const {name, description, type, tags} = req.body
+        const {name, description, type, tags} = articleSchema.validateSync(req.body)
 
-        if (!name || !description || !type || !tags)
-            throw new Error('Some properties are missing. You should provide a name, description, type, and array of tags')
-        if (typeof name !== 'string' || typeof description !== 'string' || typeof type !== 'string')
-            throw new Error('Name, description and type must be type of string')
-        if (!Array.isArray(tags))
-            throw new Error('tags must be array of string')
+        const article = findArticleByName(articles, name)
 
-        const newArticle = {name, description, type, tags}
+        if (article) {
+            throw new Error('The article with the specified name exists already')
+        }
+
+        const newArticle = {
+            name,
+            description: description ? description : '',
+            type,
+            tags: tags ? tags : []
+        }
 
         articles.push(newArticle)
         res.data = newArticle
@@ -37,21 +52,15 @@ export const createNewArticle = (req, res, next) => {
     }
 }
 
-export const updateTags = (req, res, next) => {
+export const updateTags = async (req, res, next) => {
     try {
-        const {name, tags} = req.body
-
-        if (!tags || !name)
-            throw new Error('You should provide name and tags')
-        if (typeof name !== 'string')
-            throw new Error('Name must be type of string')
-        if (!Array.isArray(tags))
-            throw new Error('Tags must be array of string')
+        const {name, tags} = articleSchema.pick(['name', 'tags']).validateSync(req.body)
 
         const article = findArticleByName(articles, name)
 
-        if (!article)
+        if (!article) {
             throw new Error('The article with the specified name was not found')
+        }
 
         article.tags = tags
 
