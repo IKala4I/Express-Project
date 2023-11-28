@@ -1,3 +1,4 @@
+import * as yup from 'yup'
 import {students} from '../mock/students.js'
 import {findStudentByWorstScore} from '../helpers/findStudentByWorstScore.js'
 
@@ -13,12 +14,14 @@ export const getStudentStatistics = (req, res, next) => {
     }
 }
 
+const typeSchema = yup
+    .string()
+    .oneOf(['homework', 'quiz', 'exam'], 'type must be homework, quiz or exam')
+    .required('type is required')
+
 export const getStudentWithWorstScore = (req, res, next) => {
     try {
-        const {type} = req.params
-
-        if (type !== 'homework' && type !== 'quiz' && type !== 'exam')
-            throw new Error('type must be homework, quiz or exam')
+        const { type } = typeSchema.validateSync(req.params)
 
         res.data = findStudentByWorstScore(students, type)
         res.status(200)
