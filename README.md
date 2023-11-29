@@ -145,3 +145,11 @@ The server will run on http://localhost:3000 by default.
 | :-------- | :-------- | :---------------------------------------- |
 | `name`    | `string`  | **Required**. Name of the article to update |
 | `tags`    | `string[]` | New tags for the article                  |
+
+## Testing
+
+To run tests, run the following command
+
+```bash
+  npm test
+```
