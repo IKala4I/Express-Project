@@ -235,3 +235,7 @@ Tue, 28 Nov 2023 11:01:49 GMT "POST /api/users/" 400 111 - 3.339 ms
 Tue, 28 Nov 2023 11:02:12 GMT "POST /api/users/" 400 95 - 21.348 ms
 Tue, 28 Nov 2023 11:03:29 GMT "POST /api/users/" 400 118 - 23.836 ms
 Tue, 28 Nov 2023 11:03:45 GMT "POST /api/users/" 400 126 - 30.623 ms
+Wed, 29 Nov 2023 10:08:38 GMT "GET /api/users/" 200 1395 - 198.980 ms
+Wed, 29 Nov 2023 10:08:49 GMT "POST /api/users/" 400 126 - 5.151 ms
+Wed, 29 Nov 2023 10:08:57 GMT "POST /api/users/" 400 75 - 7.226 ms
+Wed, 29 Nov 2023 10:09:03 GMT "POST /api/users/" 201 213 - 2.785 ms

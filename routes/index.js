@@ -6,7 +6,7 @@ import articles from './articles.js'
 const router = express.Router()
 
 router.get('/', (req, res, next) => {
-    res.send('response from index.js router')
+    res.send('Welcome to the API!')
 })
 
 export default () => {

@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "npx nodemon watch app.js"
+    "start": "node app.js",
+    "watch": "npx nodemon watch app.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
